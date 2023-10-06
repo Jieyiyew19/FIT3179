@@ -1,0 +1,11 @@
+#choropleth_map {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#scatter_plot {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
