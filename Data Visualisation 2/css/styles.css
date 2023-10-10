@@ -1,0 +1,38 @@
+h1 {
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+}
+
+#choropleth_map {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-left: 100px;
+}
+
+.pure-g {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+p{
+    text-align: left;
+    align-items: center;
+}
+
+.bold_text {
+    font-weight: bold;
+}
+
+.bold_red_text {
+    color: red;
+    font-weight: bold;
+}
+
+.bold_green_text{
+    color: green;
+    font-weight: bold;
+}
