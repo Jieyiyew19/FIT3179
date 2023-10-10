@@ -1,0 +1,55 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 500,
+    "height": 500,
+    "data": {
+        "url": "https://jieyiyew19.github.io/FIT3179/Data%20Visualisation%202/data/covid-dataset-test-10OCT.csv"
+    },
+    "params": [
+        {
+            "name": "continent_highlight",
+            "select": {"type": "point", "fields": ["continent"]},
+            "bind":"legend"
+        }
+    ],
+    "mark": {
+        "type": "bar"
+        },
+    "encoding": {
+        "x" : {
+            "timeUnit": "month",
+            "field": "date",
+            "title": "Month",
+            "type": "ordinal"
+        },
+        "y": {
+            "field": "icu_patients",
+            "title": "ICU Patients (Mean)",
+            "type": "quantitative",
+            "aggregate": "mean"
+        },
+        "color": {
+            "field": "continent",
+            "title": "Continent",
+            "type": "nominal",
+            "scale": {
+                "domain": [
+                    "Africa",
+                    "Asia",
+                    "North America",
+                    "South America",
+                    "Oceania",
+                    "Europe"
+                    
+                ]
+            }
+            
+        },
+        "opacity": {
+            "condition": {"param": "continent_highlight","value":0.9},
+            "value":0.2
+        },
+        "tooltip": [{"field": "icu_patients","type": "quantitative","title": "ICU Patients", "aggregate": "mean","format":".0f"}]
+    }
+   
+}
