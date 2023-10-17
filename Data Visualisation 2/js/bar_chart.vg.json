@@ -1,0 +1,55 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 500,
+    "height": 500,
+    "background": "lightgray",
+    "data": {
+        "url": "https://jieyiyew19.github.io/FIT3179/Week%2010%20Homework/data/covid19-cleaned-data-final.csv"
+    },
+    "params": [{
+        "name": "continent_highlight",
+        "select": {"type": "point","fields": ["continent"]},
+        "bind": "legend"
+    }],
+    "mark": {
+        "type": "bar"
+        },
+    "encoding": {
+        "x" : {
+            "field": "continent",
+            "type": "nominal",
+            "title": "Continents",
+            "axis": {"grid": false}
+        },
+        "y": {
+            "field": "new_cases",
+            "title": "Average total cases",
+            "type": "quantitative",
+            "aggregate":"average",
+            "axis": {"grid": false}
+        },
+        "color": {
+            "field": "continent",
+            "title": "Continent",
+            "type": "nominal",
+            "scale": {
+                "domain": [
+                    "Africa",
+                    "Asia",
+                    "North America",
+                    "South America",
+                    "Oceania",
+                    "Europe"
+                ],
+                "scheme":"tableau10"                         
+            }
+        },
+        "opacity": {
+            "condition": {"param":"continent_highlight","value": 1},"value":0.2
+        },
+        "tooltip": [{"field": "continent","type": "nominal","title":"Continent"},
+                    {"field": "new_cases","type": "quantitative","title":"Average COVID-19 Cases","aggregate":"average","format":".1f"}]
+    },
+    "config": {"view":{"stroke":"transparent"}}
+   
+}

@@ -2,16 +2,64 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": 500,
     "height": 500,
+    "background": "lightgray",
+    "config": {
+        "view": {
+            "stroke": "transparent"
+        }
+    },
     "data": {
         "url": "https://jieyiyew19.github.io/FIT3179/Data%20Visualisation%202/data/covid-dataset-test-10OCT.csv"
     },
-    "mark": "arc",
+    
+
+    "transform": [{
+        "aggregate": [{"op":"sum", "field": "total_cases","as": "total_cases_sum"}],
+        "groupby": ["continent"]
+    }],
+
     "encoding": {
-        "theta": {"field": "total_cases", "type": "quantitative", "aggregate":"average"},
-        "color": {"field": "continent","type": "nominal"},
-        "tooltip": [
-            {"field": "continent", "type":"nominal","title": "Continent"},
-            {"field": "total_cases","type":"quantitative","title":"Average Covid 19 cases", "aggregate":"max"}
-        ]
-    }
+        "theta": {"field": "total_cases_sum", "type": "quantitative", "stack":true},
+        "color": {"field": "continent","type":"nominal",
+        "scale": {
+            "domain": [
+                "Africa",
+                "Asia",
+                "North America",
+                "South America",
+                "Oceania",
+                "Europe"
+            ],
+            "scheme":"tableau10"                         
+        }},
+        "tooltip": [{"field": "continent", "type": "nominal","title":"Continent"},
+                    {"field": "total_cases_sum","title": "Total COVID-19 Cases"}]
+    },
+    "layer": [
+        {
+            "mark": {
+                "type": "arc",
+                "outerRadius": 250
+            }
+        },
+        {
+            "mark": {
+                "type": "text", "radius":290
+            },
+            "encoding": {
+                "text": {"field": "total_cases_sum","type":"quantitative"}
+
+                
+            }
+        }
+    ]
+    
+
+    
+    
+        
+   
+    
 }
+        
+   

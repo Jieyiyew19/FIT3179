@@ -1,0 +1,40 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 500,
+    "height": 500,
+    "background": "lightgray",
+    "data": {
+        "url": "https://jieyiyew19.github.io/FIT3179/Week%2010%20Homework/data/covid19-cleaned-data-final.csv"
+    },
+    "mark": {
+        "type":"line",
+        "point": true
+    },
+    "encoding": {
+        "x": {"timeUnit": "month", "field": "date","title": "Month","type": "ordinal","axis":{"grid": false}},
+        "y": {"field": "new_deaths", "title": "Average Monthly Deaths","type": "quantitative", "aggregate":"average","axis":{"grid": true}},
+        "tooltip": [ {"field": "continent","type":"nominal","title":"Continent"},
+                     {"field": "new_deaths","type": "quantitative","title": "Average monthly Deaths", "aggregate": "average","format":".0f"}],
+        "color": {"field": "continent","type":"nominal","scale": {"domain":["Africa","Asia","North America","South America","Oceania","Europe"],"scheme":"tableau10"}, "title":"Continent"},
+        "opacity": {
+            "condition": {
+                "param": "hover",
+                "value": 1
+            },
+            "value":0.2
+    
+    }
+    
+    },
+    "params": [{
+        "name": "hover",
+        "value": [{"continent": "Asia"}],
+        "select": {
+            "type": "point",
+            "fields": ["continent"],
+            "on": "mouseover"
+        }
+    }],
+    "config": {"view":{"stroke":"transparent"}}
+}
+

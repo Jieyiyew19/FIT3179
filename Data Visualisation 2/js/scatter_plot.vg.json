@@ -1,7 +1,9 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": 500,
-    "height": 400,
+    "height": 500,
+    "background": "lightgray",
+
     
     "data": {
         "url": "https://jieyiyew19.github.io/FIT3179/Week%2010%20Homework/data/covid19-cleaned-data-final.csv"
@@ -43,9 +45,10 @@
         "x" : {
             "field": "total_cases",
             "type" : "quantitative",
+            
             "aggregate": "average",
             "title": "Average Confirmed Cases",
-            "axis": {"tickCount": 6},
+            "axis": {"tickCount": 6, "grid": false,"gridOpacity":0},
             "scale": {"type": "log", "domain": [1,100000000]}
         },
         "y" : {
@@ -53,7 +56,7 @@
             "type": "quantitative",
             "aggregate": "average",
             "title": "Average of Deaths",
-            "axis": {"tickCount": 6},
+            "axis": {"tickCount": 6, "grid": false,"gridOpacity":0},
             "scale": {"type": "log", "domain": [1,100000000]}
         }
     },
@@ -68,7 +71,7 @@
                         "scale": {
                             "type": "threshold",
                             "domain": [10000000,100000000,500000000,1000000000,5000000000],
-                            "range": [10,50,150,200,300,400]
+                            "range": [10,60,160,210,350,500]
                         },
                         "legend": {"format": ".1s"}
                     },
@@ -78,26 +81,18 @@
                         "type": "nominal",
                         "scale": {
                             "domain": [
-                                "North America",
-                                "South America",
-                                "Europe",
                                 "Africa",
                                 "Asia",
-                                "Oceania"
+                                "North America",
+                                "South America",
+                                "Oceania",
+                                "Europe"
                             ],
-                            "range": [
-                                "#e41a1c",
-                                "#984ea3",
-                                "#ff7f00",
-                                "#a6cee3",
-                                "#377eb8",
-                                "#a65628"
-                            ]
-                            
+                            "scheme":"tableau10"                         
                         }
                     },
                     "opacity": {
-                        "value": 0.6
+                        "value": 1
                      },
                      "tooltip": [
                         {"field": "location", "type": "nominal", "title": "Country"},
@@ -132,5 +127,6 @@
                 ]
             }
         }
-    ]
+    ],
+    "config": {"view":{"stroke":"transparent"}}
 }
