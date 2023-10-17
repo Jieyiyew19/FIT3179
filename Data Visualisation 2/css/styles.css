@@ -1,10 +1,19 @@
 h1 {
     text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 80px;
 }
 
 h3 {
     text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 35px;
+    margin-left: 20px;
+    
 }
+
+
+
 
 #choropleth_map {
     display: flex;
@@ -15,12 +24,27 @@ h3 {
 
 .pure-g {
     display: flex;
+   
+    background-color: lightgray;
+    margin-left: 50px;
+    margin-right: 50px;
+    border-radius: 25px;
+}
+
+
+
+
+.pure-u-1-2{
+    display: flex;
     flex-wrap: wrap;
+   
 }
 
 p{
     text-align: left;
     align-items: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
 }
 
 .bold_text {
@@ -36,3 +60,46 @@ p{
     color: green;
     font-weight: bold;
 }
+
+.no_bold {
+    font-weight: lighter;
+}
+
+body {
+    background-color: #DFDFDE;
+    
+}
+
+
+#spaces {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+#pie_chart {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#stacked_bar_chart {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#scatter_plot {
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
+
+#bar_chart {
+    margin-left: 15px;
+    margin-bottom: 10px;
+
+}
+
+#line_chart_bottom {
+    margin-bottom: 20px;
+}
+
+
+
